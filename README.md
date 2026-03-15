@@ -1,4 +1,4 @@
-# 202357410-AsmaAlghamdi-assignment1
+# 202357410-AsmaAlghamdi-assignment2
 # Personal Portfolio Website
 
 This project is a simple personal portfolio website created as part of Assignment 1.  

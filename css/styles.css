@@ -94,10 +94,6 @@ html, body {
   display: none; /* Initially hide the project details */
 }
 
-.hover-effect:hover .project-details {
-  display: block; /* Show project details on hover */
-}
-
 /* Dark mode styles */
 .dark-mode {
   background-color: #121212;
@@ -142,6 +138,7 @@ section {
 #form-message {
   margin-top: 10px;
   font-weight: bold;
+  transition: opacity 0.3s ease;
 }
 /* Style error and success messages */
 .error {
@@ -173,10 +170,4 @@ nav a {
 /* Add a hover effect to navigation links */
 nav a:hover {
   color: #0077cc;
-}
-/* Style the form message with a transition for smooth appearance */
-#form-message {
-  margin-top: 10px;
-  font-weight: bold;
-  transition: opacity 0.3s ease;
 }
