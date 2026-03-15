@@ -57,3 +57,24 @@ projectButtons.forEach(button => {
         }
     });
 });
+
+// Contact form feedback
+const contactForm = document.getElementById("contact-form");
+const formMessage = document.getElementById("form-message");
+// Handle form submission
+contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    // Get form values and trim whitespace
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    // Validate form fields
+    if (name === "" || email === "" || message === "") {
+        formMessage.textContent = "Please fill in all fields.";
+        formMessage.className = "error";
+    } else {
+        formMessage.textContent = "Message sent successfully!";
+        formMessage.className = "success";
+        contactForm.reset();
+    }
+});

@@ -137,3 +137,18 @@ button:hover {
 section {
   transition: opacity 0.5s ease;
 }
+
+/* Style the form message */
+#form-message {
+  margin-top: 10px;
+  font-weight: bold;
+}
+/* Style error and success messages */
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+.success {
+  color: green;
+  font-size: 0.9em;
+}
