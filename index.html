@@ -45,9 +45,13 @@
         <!-- Projects section -->
         <section class="projects" id="projects">
             <h2>Projects</h2>
-
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="uiux">UI/UX</button>
+                <button class="filter-btn" data-filter="game">Game</button>
+            </div>
             <!-- Project 1 -->
-            <div class="project" id="project1">
+            <div class="project" id="project1" data-category="uiux">
                 <h3>Project 1: Event Management System</h3>
                 <img src="assets/images/events.png" alt="Event Management System project image">
                 <button class="project-button">View Details</button>
@@ -55,7 +59,7 @@
             </div>
 
             <!-- Project 2 -->
-            <div class="project" id="project2">
+            <div class="project" id="project2" data-category="game">
                 <h3>Project 2: Flying Stars Game</h3>
                 <img src="assets/images/star.jpg" alt="Flying Stars Game project image">
                 <button class="project-button">View Details</button>

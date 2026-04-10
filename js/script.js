@@ -78,3 +78,27 @@ contactForm.addEventListener("submit", (event) => {
         contactForm.reset();
     }
 });
+
+// ---- Project Filter Logic ----
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projects = document.querySelectorAll('.project');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+
+        // Remove 'active' from all buttons, add to clicked one
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const selected = button.getAttribute('data-filter');
+
+        // Show or hide projects based on category
+        projects.forEach(project => {
+            if (selected === 'all' || project.getAttribute('data-category') === selected) {
+                project.style.display = 'block';
+            } else {
+                project.style.display = 'none';
+            }
+        });
+    });
+});
