@@ -26,6 +26,9 @@ const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
+    themeButton.textContent = '☀️ Light Mode';
+} else {
+    themeButton.textContent = '🌙 Dark Mode';
 }
 
 // Toggle theme when button is clicked
@@ -36,8 +39,10 @@ themeButton.addEventListener("click", () => {
     // Save preference
     if (document.body.classList.contains("dark-mode")) {
         localStorage.setItem("theme", "dark");
+        themeButton.textContent = '☀️ Light Mode';
     } else {
         localStorage.setItem("theme", "light");
+        themeButton.textContent = '🌙 Dark Mode';
     }
 
 });
@@ -125,3 +130,42 @@ sortBtn.addEventListener('click', () => {
     // Re-add sorted projects to the page
     projectList.forEach(project => projectsSection.appendChild(project));
 });
+
+// ---- GitHub API Integration ----
+const username = 'Asma-ghamdi'; 
+
+fetch(`https://api.github.com/users/${username}/repos`)
+    .then(response => {
+        // Check if the request was successful
+        if (!response.ok) {
+            throw new Error('Failed to fetch repositories');
+        }
+        return response.json();
+    })
+    .then(repos => {
+        const container = document.getElementById('repos-container');
+        container.innerHTML = ''; // Clear loading text
+
+        if (repos.length === 0) {
+            container.innerHTML = '<p>No repositories found.</p>';
+            return;
+        }
+
+        // Display each repo as a card
+        repos.forEach(repo => {
+            const card = document.createElement('div');
+            card.classList.add('repo-card');
+            card.innerHTML = `
+                <h3>${repo.name}</h3>
+                <p>${repo.description || 'No description provided.'}</p>
+                <a href="${repo.html_url}" target="_blank">View on GitHub →</a>
+            `;
+            container.appendChild(card);
+        });
+    })
+    .catch(error => {
+        // a user friendly error message
+        document.getElementById('repos-container').innerHTML =
+            '<p class="error-message">⚠️ Could not load repositories. Please try again later.</p>';
+        console.error(error);
+    });

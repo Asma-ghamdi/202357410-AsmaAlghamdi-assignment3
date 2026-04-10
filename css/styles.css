@@ -217,3 +217,42 @@ nav a:hover {
     background: #7c3aed;
     color: white;
 }
+
+/* GitHub Repos Section */
+#repos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.repo-card {
+    border: 2px solid #7c3aed;
+    border-radius: 12px;
+    padding: 16px;
+    width: 250px;
+}
+
+.repo-card h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.repo-card p {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.repo-card a {
+    color: #7c3aed;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.repo-card a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+}
