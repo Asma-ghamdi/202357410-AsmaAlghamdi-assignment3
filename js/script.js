@@ -136,14 +136,18 @@ sortBtn.addEventListener('click', () => {
 
     const projectsSection = document.querySelector('.projects');
     const projectList = Array.from(document.querySelectorAll('.project'));
+    
+    // Define scale for each project
+    const scaleOrder = {
+        'project1': 2, // Large
+        'project2': 1  // Medium
+    };
 
-    // Sort projects alphabetically by their heading
     projectList.sort((a, b) => {
-        const nameA = a.querySelector('h3').textContent.toLowerCase();
-        const nameB = b.querySelector('h3').textContent.toLowerCase();
-        return sortAscending ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+        const scaleA = scaleOrder[a.id];
+        const scaleB = scaleOrder[b.id];
+        return sortAscending ? scaleB - scaleA : scaleA - scaleB;
     });
-
     // Re-add sorted projects to the page
     projectList.forEach(project => projectsSection.appendChild(project));
 });
