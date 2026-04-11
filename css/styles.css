@@ -65,7 +65,6 @@ button {
     width: 100%;
     max-width: 300px;
     border-radius: 5px;
-    display: block;
 }
 
 /* Makes widths and padding behave correctly on all elements */
@@ -255,4 +254,11 @@ nav a:hover {
 
 .error-message {
     color: red;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
