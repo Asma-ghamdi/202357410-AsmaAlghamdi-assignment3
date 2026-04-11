@@ -1,23 +1,40 @@
-// Get the HTML element where the greeting message will be displayed
+// ---- Greeting with Time + Visitor Name ----
 const greetingElement = document.getElementById("greeting");
 
 // Get the current hour from the system time
 const currentHour = new Date().getHours();
 
-// Variable to store the greeting message
-let greetingMessage;
-
 // Check the time and set the appropriate greeting
+let timeGreeting;
 if (currentHour < 12) {
-    greetingMessage = "Good morning!";
+    timeGreeting = "Good morning";
 } else if (currentHour < 18) {
-    greetingMessage = "Good afternoon!";
+    timeGreeting = "Good afternoon";
 } else {
-    greetingMessage = "Good evening!";
+    timeGreeting = "Good evening";
 }
 
-// Display the greeting message on the webpage
-greetingElement.textContent = greetingMessage;
+// Check if we already saved their name
+let visitorName = localStorage.getItem('visitorName');
+
+if (!visitorName) {
+    // First visit — ask for their name
+    visitorName = prompt('Hi! What is your name?');
+
+    if (visitorName && visitorName.trim() !== '') {
+        localStorage.setItem('visitorName', visitorName);
+    }
+}
+
+// Combine time greeting + name
+if (visitorName && visitorName.trim() !== '') {
+    greetingElement.textContent = `${timeGreeting}, ${visitorName}! 👋`;
+} else {
+    greetingElement.textContent = `${timeGreeting}! 👋`;
+}
+
+
+
 // Get the theme button
 const themeButton = document.getElementById("theme-toggle");
 
@@ -169,3 +186,5 @@ fetch(`https://api.github.com/users/${username}/repos`)
             '<p class="error-message">⚠️ Could not load repositories. Please try again later.</p>';
         console.error(error);
     });
+
+    
