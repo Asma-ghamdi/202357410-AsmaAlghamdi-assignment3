@@ -110,7 +110,23 @@ html, body {
 .dark-mode header {
   background-color: #222;
 }
+.dark-mode .filter-btn {
+    color: #9d5cf6;
+    border-color: #9d5cf6;
+}
 
+.dark-mode #sort-btn {
+    color: #9d5cf6;
+    border-color: #9d5cf6;
+}
+
+.dark-mode .repo-card {
+    border-color: #9d5cf6;
+}
+
+.dark-mode .repo-card a {
+    color: #9d5cf6;
+}
 /* Style the theme toggle button */
 #theme-toggle {
     margin-top: 10px;
@@ -256,7 +272,7 @@ nav a:hover {
     color: red;
 }
 
-
+/* Ensure images are responsive and display correctly */
 img {
     max-width: 100%;
     height: auto;

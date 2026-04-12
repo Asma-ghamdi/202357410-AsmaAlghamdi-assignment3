@@ -153,6 +153,8 @@ sortBtn.addEventListener('click', () => {
 });
 
 // ---- GitHub API Integration ----
+
+// GitHub username for fetching public repositories
 const username = 'Asma-ghamdi'; 
 
 fetch(`https://api.github.com/users/${username}/repos`)
