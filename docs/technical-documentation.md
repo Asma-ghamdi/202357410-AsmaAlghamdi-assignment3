@@ -152,7 +152,7 @@ Several steps were taken to improve the loading speed and efficiency of the webs
 - The site was tested using Lighthouse, achieving scores of 98 for Performance, 
   98 for Accessibility, 100 for Best Practices, and 100 for SEO
   
-![Lighthouse Score](images/lighthouse-score.png)
+![Lighthouse Score](../assets/images/lighthouse-score.jpg)
 
 ---
 
