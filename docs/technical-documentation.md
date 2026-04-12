@@ -169,13 +169,3 @@ The `meta viewport` tag in the HTML file allows the layout to scale properly on 
 A `meta description` tag was added to the HTML head to provide search engines with a concise 
 summary of the page content. This improves how the page appears in search results and 
 contributed to the SEO score in Lighthouse.
-
----
-
-## AI Usage Summary
-AI tools were used throughout this assignment to support development, debugging, and documentation. 
-ChatGPT was used in the early phases to help structure the HTML, style the layout, and implement 
-basic JavaScript features. Claude was used in the later phases to generate more advanced features 
-such as the GitHub API integration, project filter and sort logic, visitor name storage, and 
-performance optimizations. All AI-generated suggestions were reviewed, tested, and adjusted to 
-fit the project structure before being added. Full details are documented in `docs/ai-usage-report.md`.
