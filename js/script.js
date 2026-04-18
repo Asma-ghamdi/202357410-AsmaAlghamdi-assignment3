@@ -83,23 +83,40 @@ projectButtons.forEach(button => {
 // Contact form feedback
 const contactForm = document.getElementById("contact-form");
 const formMessage = document.getElementById("form-message");
+
 // Handle form submission
 contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    // Get form values and trim whitespace
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-    // Validate form fields
-    if (name === "" || email === "" || message === "") {
+
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const messageInput = document.getElementById("message");
+
+    // Trim inputs to remove extra whitespace
+    nameInput.value = nameInput.value.trim();
+    emailInput.value = emailInput.value.trim();
+    messageInput.value = messageInput.value.trim();
+
+    // Basic validation
+    if (!nameInput.value || !emailInput.value || !messageInput.value) {
         formMessage.textContent = "Please fill in all fields.";
         formMessage.className = "error";
-    } else {
-        formMessage.textContent = "Message sent successfully!";
-        formMessage.className = "success";
-        contactForm.reset();
+        return;
     }
+
+    // Validate email format using HTML5 validation
+    if (!emailInput.checkValidity()) {
+        formMessage.textContent = "Please enter a valid email address.";
+        formMessage.className = "error";
+        return;
+    }
+
+    // If validation passes, show success message
+    formMessage.textContent = "Message sent successfully!";
+    formMessage.className = "success";
+    contactForm.reset();
 });
+
 
 // ---- Project Filter Logic ----
 const filterButtons = document.querySelectorAll('.filter-btn');
